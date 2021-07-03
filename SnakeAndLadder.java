@@ -1,5 +1,5 @@
 /**
-* This program is to ensure repeating till the user position reaches 100.
+* This program is repeating till the user position reaches 100.
 *
 * @author  BathalaHaresh
 */
@@ -40,18 +40,20 @@ public class SnakesAndLadder
 	    int Choice=sc.nextInt();
 	    switch(Choice){
 	    case 1:
-	    int position=0;
+	    int position=0,steps=0;
 	    while(true)
 	    {
 	    	int dice = (int) ((Math.random() * 100) % 6) + 1;
 	        position+=dice;
+	        steps++;
 	        
 	        System.out.println("Your dice is:"+dice);
 	        
 	        if(position==100)
 	        {
 	            System.out.println("You Won the Match");
-	            
+	            //calculating the number of steps taken to win the match
+	            System.out.println("You taken Steps"+steps);
 	            return;
 	        }
 	        else if(position>100)
