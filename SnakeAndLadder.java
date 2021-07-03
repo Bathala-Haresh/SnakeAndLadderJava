@@ -1,5 +1,5 @@
 /**
-* This program is to welcome to snake and ladder
+* This program is that the player rolls the dice to get a number between 1 to 6
 *
 * @author  Bathala Haresh
 */
@@ -8,9 +8,11 @@ public class SnakeAndLadder
 {
 	public static void main(String[] args) {
 		
+		final int player=1;
+		final int position=0;
 		
-		
-		System.out.println("Welcome to snake and ladder problem ");
+		int dice = (int) ((Math.random() * 100) % 6) + 1;
+		System.out.println("Dice value is : " + dice);
 		
 	}
 }
