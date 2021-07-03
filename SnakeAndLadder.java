@@ -1,20 +1,18 @@
 /**
-* This program is that the user checks for a option like NoPlay,Ladder or snake.
+* This program is repeating till the user position reaches 100.
 *
 * @author  BathalaHaresh
 */
 
 
-
 package snakesAndLaders;
-
 import java.util.*; 
+
 import java.util.Scanner;
 public class SnakesAndLadder
 {
 	public static void main(String[] args) {
-		
-		//taken arrarList to add the position of ladders and snakes. 
+		//taken arrarList to add the position of ladders and snakes.
 		List<Integer> ladders=new ArrayList<Integer>(); 
 		List<Integer> snakes=new ArrayList<Integer>(); 
 		 ladders.add(4);
@@ -37,24 +35,31 @@ public class SnakesAndLadder
 	}
 	public static void game(List<Integer> ladders,List<Integer> snakes)
 	{
-		//asking the user like what he wants to play
-	    System.out.println("1.Single Player\n 2.MultiPlayer");
+	    System.out.println("1.Single Player\n2.2 Players");
 	    Scanner sc=new Scanner(System.in);
 	    int Choice=sc.nextInt();
 	    switch(Choice){
 	    case 1:
 	    int position=0;
-	    
-	    //checking that the player position is less than or equal to 100
-	    while(position < 101)
+	    while(true)
 	    {
 	    	int dice = (int) ((Math.random() * 100) % 6) + 1;
 	        position+=dice;
 	        
 	        System.out.println("Your dice is:"+dice);
 	        
+	        if(position==100)
+	        {
+	            System.out.println("You Won the Match");
+	            
+	            return;
+	        }
+	        else if(position>100)
+	        {
+	            position=position-dice;
+	        }
 	        
-	        if(ladders.contains(position))
+	        else if(ladders.contains(position))
 	        {
 	            position=position+dice;
 	        }
@@ -64,6 +69,7 @@ public class SnakesAndLadder
 	        }
 	        else
 	        {
+	        	//if position is not in ladder or snake then asking user to confirm whether wants to move or not
 	            System.out.println("1.Move\n2.Not Move");
 	            System.out.println("Enter Choice:");
 	            int ch=sc.nextInt();
@@ -76,12 +82,12 @@ public class SnakesAndLadder
 	            }
 	        }
 	        System.out.println("Your position is:"+position);
-	        
-	    }
+	       }
+	    
 	    case 2:
 	    	System.out.println("Will be developed in next UseCase");
-	    
 	    }
 	    sc.close();
+	   
 }
 }
