@@ -11,8 +11,8 @@ public class SnakeAndLadder
 		final int player=1;
 		final int position=0;
 		
-		int dice = (int) ((Math.random() * 100) % 6) + 1;
-		System.out.println("Dice value is : " + dice);
+		
+		System.out.println("Welcome to snakeAndLadder Problem ");
 		
 	}
 }
